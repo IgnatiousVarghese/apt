@@ -1,0 +1,120 @@
+reScores summary result-base-26.json:
+count    8.241000e+03
+mean     1.144177e-02
+std      2.274218e-02
+min      5.995247e-21
+25%      1.165962e-08
+50%      2.448519e-07
+max      1.000000e+00
+dtype: float64
+
+
+reScores summary result-base-27.json:
+count    8.211000e+03
+mean     1.148383e-02
+std      2.277304e-02
+min      5.995247e-21
+25%      1.165962e-08
+50%      2.448519e-07
+max      1.000000e+00
+dtype: float64
+
+
+reScores summary result-base-28.json:
+count    8.216000e+03
+mean     1.147627e-02
+std      2.276813e-02
+min      5.995247e-21
+25%      1.165962e-08
+50%      2.448519e-07
+max      1.000000e+00
+dtype: float64
+
+
+reScores summary result-base-29.json:
+count    8.223000e+03
+mean     1.146676e-02
+std      2.276078e-02
+min      5.995247e-21
+25%      1.165962e-08
+50%      2.448519e-07
+max      1.000000e+00
+dtype: float64
+
+
+reScores summary result-base-30.json:
+count    8.219000e+03
+mean     1.147234e-02
+std      2.276491e-02
+min      5.995247e-21
+25%      1.165962e-08
+50%      2.448519e-07
+max      1.000000e+00
+dtype: float64
+
+
+reScores summary result-base-300.json:
+count    8.887000e+03
+mean     1.100197e-02
+std      2.232369e-02
+min      5.995247e-21
+25%      5.552198e-10
+50%      2.448519e-07
+max      1.000000e+00
+dtype: float64
+
+
+reScores summary result-base-301.json:
+count    8.890000e+03
+mean     1.099831e-02
+std      2.232081e-02
+min      5.995247e-21
+25%      5.552198e-10
+50%      2.448519e-07
+max      1.000000e+00
+dtype: float64
+
+
+reScores summary result-base-302.json:
+count    8.891000e+03
+mean     1.099709e-02
+std      2.231986e-02
+min      5.995247e-21
+25%      5.552198e-10
+50%      2.448519e-07
+max      1.000000e+00
+dtype: float64
+
+
+reScores summary result-base-303.json:
+count    8.893000e+03
+mean     1.099464e-02
+std      2.231794e-02
+min      5.995247e-21
+25%      5.552198e-10
+50%      2.448519e-07
+max      1.000000e+00
+dtype: float64
+
+
+reScores summary result-base-304.json:
+count    8.887000e+03
+mean     1.100200e-02
+std      2.232368e-02
+min      5.995247e-21
+25%      5.552198e-10
+50%      2.448519e-07
+max      1.000000e+00
+dtype: float64
+
+
+reScores summary result-base-305.json:
+count    8.893000e+03
+mean     1.099464e-02
+std      2.231794e-02
+min      5.995247e-21
+25%      5.552198e-10
+50%      2.448519e-07
+max      1.000000e+00
+dtype: float64
+
