@@ -52,13 +52,15 @@ min      5.995247e-21
 max      1.000000e+00
 dtype: float64
 
-
+         // 0.000001165961
+         // 0.000000055521
+                  
 reScores summary result-base-300.json:
 count    8.887000e+03
 mean     1.100197e-02
 std      2.232369e-02
 min      5.995247e-21
-25%      5.552198e-10
+25%      5.552198e-10        
 50%      2.448519e-07
 max      1.000000e+00
 dtype: float64
