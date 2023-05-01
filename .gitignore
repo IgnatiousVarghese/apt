@@ -1,3 +1,8 @@
 RE/result/**
 **/.ipynb_checkpoints
 **/toy.db
+RE/parsed-graphs
+RE/test-graphs
+output
+.gitignore
+RE/parsed-graphs/base-310.txt
