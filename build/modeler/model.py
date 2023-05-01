@@ -9,6 +9,8 @@ import numpy as np
 import random
 import os
 import sys
+import re
+import json
 from helper.profile import BestClusterGroup, Model, test_single_graph
 from scipy.spatial.distance import pdist, squareform, hamming
 from sklearn.model_selection import KFold, ShuffleSplit
@@ -108,7 +110,7 @@ def model_graphs(train_files, model_file, max_cluster_num=6, num_trials=20, max_
         savefile.close()
     return models
 
-
+result_dict={}
 def test_graphs(test_files, models, metric, num_stds):
     """Test all sketch vectors in @test_files using the @models
     built from model_training_graphs. """
@@ -134,18 +136,22 @@ def test_graphs(test_files, models, metric, num_stds):
                 DEBUG_INFO[test_file] = test_info
         f.close()
         total_graphs_tested += 1
+        name=re.split(r'\/|-|\.', test_file)
+        # print(name)
         if not abnormal: # The graph is considered normal
             printout += "{} is NORMAL fitting {}/{} models\n".format(test_file, num_fitted_model, len(models))
             if "attack" not in test_file: # NOTE: file name should include "attack" to indicate the oracle
                 tn = tn + 1
             else:
                 fn = fn + 1
+            result_dict[name[10]]="NORMAL"    
         else:
             printout += "{} is ABNORMAL at {}\n".format(test_file, max_abnormal_point)
             if "attack" in test_file:
                 tp = tp + 1
             else:
                 fp = fp + 1
+            result_dict[name[10]]="ABNORMAL"    
                 
     if (tp + fp) == 0:
         precision = None
@@ -169,7 +175,7 @@ if __name__ == "__main__":
     parser.add_argument('-u', '--test-dir', help='absolute path to the directory that contains all test sketches', required=True)
     parser.add_argument('-m', '--metric', choices=['mean', 'max', 'both'], default='both',
             help='threshold metric to use to calculate the mean or max of the cluster distances between cluster members and the medoid')
-    parser.add_argument('-n', '--num-stds', choices=np.arange(0, 5.0, 0.1), type=float,
+    parser.add_argument('-n', '--num-stds', choices=np.arange(1.4, 1.5, 0.5), type=float,
             help='the number of standard deviations above the threshold to tolerate')
     parser.add_argument('-s', '--save-model', help='use this flag to save the model', action='store_true')
     parser.add_argument('-S', '--seed', help='seed for random number generator', type=int, default=98765432)
@@ -205,7 +211,7 @@ if __name__ == "__main__":
         metric_config = [args.metric]
     # Determine the number of standard deviations to use
     if not args.num_stds:    # If this argument is not given, we explore different possible configurations.
-        std_config = np.arange(0, 5.0, 0.1)
+        std_config = np.arange(1.4, 1.5, 0.5)
     else:
         std_config = [args.num_stds]
     # Train (all training graphs) #
@@ -258,13 +264,16 @@ if __name__ == "__main__":
             cv += 1
 
     # Debug print for Visicorn
-    if args.verbose:
-        for tf in train_files:
-            print(tf)
-            print(DEBUG_INFO[tf])
-        for tf in test_files:
-            print(tf)
-            print(DEBUG_INFO[tf])
-
+    # if args.verbose:
+    #     for tf in train_files:
+    #         print(tf)
+    #         print(DEBUG_INFO[tf])
+    #     for tf in test_files:
+    #         print(tf)
+    #         print(DEBUG_INFO[tf])
+    print(result_dict)
+    with open('../../output/result.json','w') as fp:
+        json.dump(result_dict,fp)
     print("\x1b[6;30;42m[SUCCESS]\x1b[0m Unicorn is finished")
+
 
